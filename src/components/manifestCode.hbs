@@ -1,0 +1,344 @@
+<div class="flex" x-data="mapInit()" x-init()="initiateSocket()">
+    <div id="demo" style="width: 100%; height: 100vh; position: relative; outline: none;"></div>
+    <!-- <div class="absolute left-0 z-[3000] px-4 py-5 sm:p-6 w-96">
+        <div class="lg:col-start-3 lg:row-end-1">
+            <h2 class="sr-only">Perjalanan</h2>
+            <div class="rounded-lg bg-indigo-50 shadow-sm ring-1 ring-gray-900/5">
+                <dl class="flex flex-wrap">
+                    <div class="flex-auto pl-6 pt-6">
+                        <dt class="text-sm font-semibold leading-6 text-gray-900">Perjalanan </dt>
+                        <dd class="mt-1 text-base font-semibold leading-6 text-gray-900">Rp20.000</dd>
+                    </div>
+                    <div class="flex-none self-end px-6 pt-4">
+                        <dt class="sr-only">Status</dt>
+                        <dd
+                            class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
+                            Paid</dd>
+                    </div>
+                    <div class="mt-6 flex w-full flex-none gap-x-4 border-t border-gray-900/5 px-6 pt-6">
+                        <input type="text" name="website" id="website" disabled x-model="mapInitOriginLongLat"
+                            class="block flex-1 border-0 bg-grey-100 rounded-md py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                            placeholder="Asal">
+                    </div>
+                    <div class="mt-6 flex w-full flex-none gap-x-4 border-t border-gray-900/5 px-6 pt-6">
+                        <input type="text" name="website" id="website" disabled x-model="mapInitDestinationLongLat"
+                            class="block flex-1 border-0 bg-grey-100 rounded-md py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                            placeholder="Tujuan">
+                    </div>
+                    <div class="mt-6 flex w-full flex-none gap-x-4 border-t border-gray-900/5 px-6 pt-6">
+                        <dt class="flex-none">
+                            <span class="sr-only">Supir</span>
+                            <svg class="h-6 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor"
+                                aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-5.5-2.5a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0zM10 12a5.99 5.99 0 00-4.793 2.39A6.483 6.483 0 0010 16.5a6.483 6.483 0 004.793-2.11A5.99 5.99 0 0010 12z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </dt>
+                        <dd class="text-sm font-medium leading-6 text-gray-900">Anthony Martial</dd>
+                    </div>
+                    <div class="mt-4 flex w-full flex-none gap-x-4 px-6">
+                        <dt class="flex-none">
+                            <span class="sr-only">Due date</span>
+                            <svg class="h-6 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor"
+                                aria-hidden="true">
+                                <path
+                                    d="M5.25 12a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H6a.75.75 0 01-.75-.75V12zM6 13.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V14a.75.75 0 00-.75-.75H6zM7.25 12a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H8a.75.75 0 01-.75-.75V12zM8 13.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V14a.75.75 0 00-.75-.75H8zM9.25 10a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H10a.75.75 0 01-.75-.75V10zM10 11.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V12a.75.75 0 00-.75-.75H10zM9.25 14a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H10a.75.75 0 01-.75-.75V14zM12 9.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V10a.75.75 0 00-.75-.75H12zM11.25 12a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H12a.75.75 0 01-.75-.75V12zM12 13.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V14a.75.75 0 00-.75-.75H12zM13.25 10a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H14a.75.75 0 01-.75-.75V10zM14 11.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V12a.75.75 0 00-.75-.75H14z" />
+                                <path fill-rule="evenodd"
+                                    d="M5.75 2a.75.75 0 01.75.75V4h7V2.75a.75.75 0 011.5 0V4h.25A2.75 2.75 0 0118 6.75v8.5A2.75 2.75 0 0115.25 18H4.75A2.75 2.75 0 012 15.25v-8.5A2.75 2.75 0 014.75 4H5V2.75A.75.75 0 015.75 2zm-1 5.5c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25h10.5c.69 0 1.25-.56 1.25-1.25v-6.5c0-.69-.56-1.25-1.25-1.25H4.75z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </dt>
+                        <dd class="text-sm leading-6 text-gray-500">
+                            <time datetime="2023-01-31">January 31, 2023</time>
+                        </dd>
+                    </div>
+                    <div class="mt-4 flex w-full flex-none gap-x-4 px-6">
+                        <dt class="flex-none">
+                            <span class="sr-only">Status</span>
+                            <svg class="h-6 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor"
+                                aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M2.5 4A1.5 1.5 0 001 5.5V6h18v-.5A1.5 1.5 0 0017.5 4h-15zM19 8.5H1v6A1.5 1.5 0 002.5 16h15a1.5 1.5 0 001.5-1.5v-6zM3 13.25a.75.75 0 01.75-.75h1.5a.75.75 0 010 1.5h-1.5a.75.75 0 01-.75-.75zm4.75-.75a.75.75 0 000 1.5h3.5a.75.75 0 000-1.5h-3.5z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </dt>
+                        <dd class="text-sm leading-6 text-gray-500">Paid with MasterCard</dd>
+                    </div>
+                </dl>
+                <div class="mt-6 border-t border-gray-900/5 px-6 py-6">
+                    <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Download receipt <span
+                            aria-hidden="true">&rarr;</span></a>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <div x-show="divCustomer">
+        <div class="fixed z-[3000] inset-x-0 bottom-0 flex flex-col-reverse text-sm font-medium text-gray-900">
+
+            <div class="relative z-20 border-t border-gray-200 bg-gray-50 px-4 sm:px-6 rounded-t-3xl"
+                x-show="openDetail">
+                <div class="max-w items-center">
+                    <div class="items-center flex justify-between">
+                        <div class="py-2">
+                            <div class="flex items-center justify-between">
+                                <div class=" items-center px-4 text-md sm:text-md">
+                                    <div class="flex items-center justify-start mb-2">
+                                        <img src="/static/images/location-red.svg" class="w-6 h-6" alt="">
+                                        <span class="mx-2">Titik Jemput</span>
+                                    </div>
+                                    <div class="text-gray-950 mb-1" x-text="initOriginName"></div>
+                                    <div class="text-gray-500" x-text="initDestName">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="relative z-10 border-t border-gray-200 bg-white px-4 sm:px-6 rounded-t-3xl">
+                <a class="max-w items-center" x-on:click="openDetail = ! openDetail">
+                    <div class="flex items-center justify-center">
+                        <div class="h-1 ms-2 bg-gray-200 rounded-full w-1/4 my-2"></div>
+                    </div>
+                    <div class="items-center flex justify-between mb-1">
+                        <div class="py-2">
+                            <div class="flex items-center justify-between">
+                                <div class="text-black group flex items-center px-2 text-sm sm:text-sm"> <svg
+                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span class="px-1">Estimasi Sampai dalam</span>
+                                    <span id="estTime" class="px-1 bg-gray-200 border-spacing-0 rounded-md"></span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="text-black group flex items-center px-2 text-sm sm:text-sm">
+                                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M3.68478 18.7826L11.5642 4.77473C11.7554 4.43491 12.2446 4.43491 12.4358 4.77473L20.3152 18.7826C20.5454 19.1918 20.1357 19.6639 19.6982 19.4937L12.1812 16.5705C12.0647 16.5251 11.9353 16.5251 11.8188 16.5705L4.30179 19.4937C3.86426 19.6639 3.45463 19.1918 3.68478 18.7826Z"
+                                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                        </path>
+                                    </svg>
+                                    <span class="px-1">Jarak Tersisa sekitar</span>
+                                    <span id="estDistance" class="px-1 bg-gray-200 border-spacing-0 rounded-md"
+                                        x-text="estDistance"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="text-gray-900 group items-center text-md">
+                                <img src="/static/images/car.svg" class="w-10 h-10 ml-3" alt="">
+                                <span class="px-1 bg-yellow-500 border-spacing-0 rounded-md"
+                                    x-text="numberPlate"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                </a>
+            </div>
+            <div
+                class="relative z-20 bg-gray-800 rounded-3xl my-2 self-center text-white flex justify-between px-3 py-1">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-5 h-5 mx-1">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                </svg>
+
+                <span class="text-sm font-normal">Driver sedang menuju lokasi menjemput anda</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var routing = ''
+    const collection = document.getElementsByClassName("example color");
+    var dmap = L.map('demo');
+    var testIcon = L.icon({
+        iconUrl: "/static/images/bus.svg",
+        iconSize: [50, 50]
+    })
+    var selfIcon = L.icon({
+        iconUrl: "/static/images/self-location.svg",
+        iconSize: [50, 50]
+    })
+    // var marker = L.marker([-7.7459039, 110.3622673], {
+    //     // icon : testIcon
+    // }).addTo(dmap);
+    var greenIcon = new L.Icon({
+        iconUrl: '/static/images/destination.svg',
+        iconSize: [50, 50],
+    });
+
+    var blueIcon = new L.Icon({
+        iconUrl: '/static/images/bus.svg',
+        iconSize: [50, 50],
+    });
+    var mapLink =
+        '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        maxZoom: 20
+    }).addTo(dmap);
+    var routeLabel = window.document.getElementsByClassName("leaflet-top leaflet-right")[0].remove()
+    var dangle = ''
+    var estTimeGlobal = ' -- '
+    var estDistanceGlobal = ' -- '
+
+    function mapInit() {
+        return {
+            mapInitOriginLong: '-7.7459039',
+            mapInitOriginLat: '110.3622673',
+            mapInitDestinationLong: '-6.991244',
+            mapInitDestinationLat: '110.4051431',
+            initOriginName: '',
+            initDestName: '',
+            mapInitOriginLongLat: '',
+            mapInitDestinationLongLat: '',
+            mapOnTheWayLong: '',
+            mapOnTheWayLat: '',
+            dmap: '',
+            routing: '',
+            longitude: '',
+            latitude: '',
+            dataManifest: '',
+            route: '',
+            course: '',
+            numberPlate: '',
+            openDetail: false,
+            estDistance: '-',
+            estTime: '-',
+            divCustomer: false,
+
+            async initiateSocket() {
+
+                const data = await axios.get(`/api/v1/manifest/` + `{{manifestCode}}`)
+                this.dataManifest = data.data.manifest
+                var a = await this.get_route(data.data.manifest.outletList)
+                this.mapInitOriginLong = a[0].lat
+                this.mapInitOriginLat = a[0].lng
+                this.initOriginName = this.dataManifest.outletList[0].nama
+                this.initDestName = this.dataManifest.outletList[this.dataManifest.outletList.length - 1].nama
+
+                this.initMap()
+                var socket = io.connect('https://tracking.asmat.app', { reconnect: true });
+                this.numberPlate = this.dataManifest.numberPlate
+
+                socket.on('connect', function () {
+                    socket.emit('storeClientInfo', { customId: `${data.data.manifest.numberPlate}` });
+                });
+                socket.on('test', function (data) {
+                    // console.log(data)
+
+                });
+                socket.on("users", (users) => {
+                    users.forEach((user) => {
+                        user.self = user.userID === socket.id;
+                        initReactiveProperties(user);
+                    });
+                    this.users = users.sort((a, b) => {
+                        if (a.self) return -1;
+                        if (b.self) return 1;
+                        if (a.username < b.username) return -1;
+                        return a.username > b.username ? 1 : 0;
+                    });
+                });
+                let test = ''
+
+                // socket.emit('setLongLat', test);
+                socket.on('getLongLat', function (message) {
+                    this.longitude = message.location.longitude
+                    this.latitude = message.location.latitude
+                    this.course = message.location.course
+                    // dmap.setView([this.longitude, this.latitude])
+                    routing.spliceWaypoints(0, 1, L.latLng(this.longitude, this.latitude))
+                    window.estDistanceGlobal = routing._selectedRoute.summary.totalDistance
+                    window.estTimeGlobal = routing._selectedRoute.summary.totalTime
+                    document.getElementById("estTime").innerText = (Math.round(window.estTimeGlobal / 60)).toString() + ' Menit'
+                    document.getElementById("estDistance").innerText = (Math.round(window.estDistanceGlobal / 1000)).toString() + ' KM'
+                    window.estTimeGlobal = (routing._selectedRoute.summary.totalTime / 60)
+                    window.dangle = message.location.course
+                })
+
+            },
+            initMap() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const myParam = urlParams.get('self');
+                this.mapInitOriginLongLat = `${this.mapInitOriginLong}` + `,` + `${this.mapInitOriginLat}`
+                this.mapInitDestinationLongLat = `${this.mapInitDestinationLong}` + `,` + `${this.mapInitDestinationLat}`
+                if (myParam) {
+                    this.divCustomer = true
+                    coordCustom = myParam.split(",")
+                    this.mapInitOriginLongLat = `${this.mapInitOriginLong}` + `,` + `${this.mapInitOriginLat}`
+                    this.mapInitDestinationLongLat = coordCustom[0] + `,` + coordCustom[1]
+                    // var marker = L.marker([`${this.mapInitOriginLong}`, `${this.mapInitOriginLat}`], {
+                    //     icon: selfIcon
+                    // }).addTo(dmap);
+                }
+                routing = L.Routing.control({
+                    draggableWaypoints: false,
+                    waypoints: this.route,
+                    addWaypoints: false,
+                    lineOptions: {
+                        styles: [{
+                            color: '#2ecc71',
+                            opacity: 1,
+                            weight: 10
+                        }]
+                    },
+                    routeWhiledragging: false,
+                    createMarker: function (i, wp, nWps) {
+                        if (i === 0) {
+                            return L.marker(wp.latLng, {
+                                icon: testIcon,
+                                //rotationAngle: window.dangle
+
+                            });
+                        } else {
+                            return L.marker(wp.latLng, {
+                                icon: greenIcon,
+                                // rotationAngle: window.dangle
+                            });
+                        }
+                    }
+                })
+                // .on("routesfound", function (e) {
+                //     e.routes[0].coordinates.forEach(function (coord, index) {
+
+                //         setTimeout(() => {
+                //             marker.setLatLng([coord.lat, coord.lng])
+
+                //         }, 500 * index);
+                //     });
+                // })
+                routing.addTo(dmap);
+
+            },
+            async get_route(waypoints) {
+                let temp = []
+                for (let i = 0; i < waypoints?.length; i++) {
+                    // temp.push(L.latLng(waypoints[i].lat, waypoints[i].lon))
+                    if (i == 0) {
+                        temp.push(L.latLng(waypoints[i].lat, waypoints[i].lon))
+
+                    }
+                    if (i == waypoints?.length - 1) {
+                        temp.push(L.latLng(waypoints[i].lat, waypoints[i].lon))
+
+                    }
+                }
+                this.route = temp
+                return temp;
+            }
+        }
+    }
+
+
+</script>
