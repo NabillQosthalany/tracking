@@ -1,11 +1,11 @@
 <template>
-    <div class="max-w-sm mx-auto mt-3">
+    <div class="max-w-sm mx-auto relative">
         <div class="bg-[#4161AC] py-3 px-5">
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
                     <font-awesome-icon icon="arrow-left" class="text-white mr-2" />
                     <div>
-                        <h1 class="text-[#FAFAFA] text-xs font-bold">Tracking</h1>
+                        <h1 class="text-[#FAFAFA] text-xs font-semibold">Tracking</h1>
                         <p class="text-[#E5E7EB] text-xs">BJH2407016RTOJ</p>
                     </div>
                 </div>
@@ -17,8 +17,11 @@
                 </div>
             </div>
         </div>
-        <MapView />
-        <Card />
+        
+        <div class="relative">
+            <MapView class="relative z-0" />
+            <Card class="absolute bottom-0 left-0 right-0 z-10 bg-white rounded-2xl" />
+        </div>
     </div>
 </template>
 

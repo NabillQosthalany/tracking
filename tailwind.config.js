@@ -5,7 +5,11 @@ export default {
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'sans': ['DM Sans', 'sans-serif'] // Menjadikan DM Sans sebagai font default
+      }
+    },
   },
   plugins: [],
 }

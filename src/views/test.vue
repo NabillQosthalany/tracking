@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1 class="text-red-500">WebSocket Demoalskdjalskjdlaskjdl</h1>
+        <h1 class="text-blue-500">WebSocket Demo</h1>
     </div>
 </template>
 
@@ -17,7 +17,7 @@ onMounted(() => {
 
                 socket.on('connect', function () {
                     console.log('connect')
-                    socket.emit('storeClientInfo', { customId: 'AE7125V' });
+                    socket.emit('storeClientInfo', { customId: 'D7753AT' });
                 });
                 socket.on('test', function (data) {
                     console.log(data)
