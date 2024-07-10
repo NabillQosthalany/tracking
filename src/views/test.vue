@@ -1,9 +1,6 @@
 <template>
     <div>
-        <h1>WebSocket Demo</h1>
-        <ul>
-            <li v-for="message in messages" :key="message.id">{{ message.text }}</li>
-        </ul>
+        <h1 class="text-red-500">WebSocket Demoalskdjalskjdlaskjdl</h1>
     </div>
 </template>
 
@@ -24,8 +21,7 @@ onMounted(() => {
                 });
                 socket.on('test', function (data) {
                     console.log(data)
-
-                });
+                  });
                 socket.on("users", (users) => {
                     users.forEach((user) => {
                         user.self = user.userID === socket.id;
