@@ -17,7 +17,7 @@ onMounted(() => {
 
                 socket.on('connect', function () {
                     console.log('connect')
-                    socket.emit('storeClientInfo', { customId: 'D7753AT' });
+                    socket.emit('storeClientInfo', { customId: 'D7940AS' });
                 });
                 socket.on('test', function (data) {
                     console.log(data)

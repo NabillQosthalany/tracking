@@ -1,15 +1,15 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
 // Komponen yang akan digunakan sebagai halaman
-import webscoket from '../views/websocket.vue';
+import websocket from '../views/websocket.vue';
 import Test from '../views/test.vue';
 
 // Definisikan rute
 const routes = [
   {
-    path: '/webscoket',
-    name: 'webscoket',
-    component: webscoket
+    path: '/map/JKL/:manifestId?',
+    name: 'websocket',
+    component: websocket
   },
   {
     path: '/test',

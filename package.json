@@ -15,9 +15,14 @@
     "@fortawesome/vue-fontawesome": "^3.0.8",
     "axios": "^1.7.2",
     "leaflet": "^1.9.4",
+    "leaflet-rotatedmarker": "^0.2.0",
     "leaflet-routing-machine": "^3.2.12",
+    "lottie-web": "^5.12.2",
+    "pinia": "^2.1.7",
+    "socket.io-client": "^4.7.5",
     "vue": "^3.4.29",
-    "vue-router": "^4.4.0"
+    "vue-router": "^4.4.0",
+    "vue3-lottie": "^3.3.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.5",
